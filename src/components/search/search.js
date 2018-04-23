@@ -8,6 +8,11 @@ import {
 } from 'react-native';
 import { Select, Option } from 'react-native-chooser';
 
+const colors = {
+  backdropBackColor: '#d3d5d6',
+  optionListColor: '#F5FCFF',
+};
+
 const styles = StyleSheet.create({
   container: {
     flexDirection: 'row',
@@ -19,10 +24,10 @@ const styles = StyleSheet.create({
     width: 30,
   },
   backdropStyle: {
-    backgroundColor: '#d3d5d6',
+    backgroundColor: colors.backdropBackColor,
   },
   optionListStyle: {
-    backgroundColor: '#F5FCFF',
+    backgroundColor: colors.optionListColor,
   },
 });
 
