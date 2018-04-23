@@ -5,6 +5,7 @@ import {
   FETCH_IMAGES_FAILURE,
   FETCH_IMAGES_SUCCESS,
   KEYWORD_CHANGE,
+  IMAGES_PER_ROW,
 } from '../actions/actions';
 
 const initialState = {
@@ -12,6 +13,7 @@ const initialState = {
   loading: false,
   error: null,
   keyword: '',
+  imagesPerRow: 2,
 };
 
 function search(state = initialState, action) {
@@ -43,6 +45,12 @@ function search(state = initialState, action) {
       return {
         ...state,
         keyword: action.payload.keyword,
+      };
+
+    case IMAGES_PER_ROW:
+      return {
+        ...state,
+        imagesPerRow: action.payload.imagesPerRow,
       };
 
     default:

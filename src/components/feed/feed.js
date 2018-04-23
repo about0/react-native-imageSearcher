@@ -1,16 +1,8 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { FlatList, StyleSheet, View, Dimensions } from 'react-native';
 import FeedItem from './feedItem';
 
 const windowWidth = Dimensions.get('window').width;
-const IMAGES_PER_ROW = 3;
-
-const calculatedSize = (() => {
-  const size = windowWidth / IMAGES_PER_ROW;
-  return { width: size, height: size };
-})();
-
-console.log(calculatedSize, windowWidth);
 
 const styles = StyleSheet.create({
   containerList: {
@@ -19,21 +11,33 @@ const styles = StyleSheet.create({
     flexWrap: 'wrap',
   },
   image: {
-    width: calculatedSize.width,
-    height: calculatedSize.height,
+    margin: 1,
   },
 });
+class Feed extends Component {
+  calculatedSize() {
+    const size = windowWidth / this.props.imagesPerRow;
+    return { width: size, height: size };
+  }
 
-const feed = props => (
-  <View style={styles.containerList}>
-    <FlatList
-      data={props.images}
-      renderItem={({ item }) => (
-        <FeedItem source={{ uri: item.thumbnailUrl }} style={styles.image} />
-      )}
-      keyExtractor={(item, index) => index}
-    />
-  </View>
-);
+  render() {
+    return (
+      <View style={styles.containerList}>
+        <FlatList
+          numColumns={this.props.imagesPerRow}
+          data={this.props.images}
+          renderItem={({ item }) => (
+            <FeedItem
+              source={{ uri: item.thumbnailUrl }}
+              style={(styles.image, this.calculatedSize())}
+            />
+          )}
+          keyExtractor={(item, index) => index}
+          key={this.props.imagesPerRow === 2 ? 1 : 0}
+        />
+      </View>
+    );
+  }
+}
 
-export default feed;
+export default Feed;

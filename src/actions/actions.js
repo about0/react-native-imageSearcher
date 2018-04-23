@@ -4,6 +4,7 @@ export const FETCH_IMAGES_BEGIN = 'FETCH_IMAGES_BEGIN';
 export const FETCH_IMAGES_SUCCESS = 'FETCH_IMAGES_SUCCESS';
 export const FETCH_IMAGES_FAILURE = 'FETCH_IMAGES_FAILURE';
 export const KEYWORD_CHANGE = 'KEYWORD_CHANGE';
+export const IMAGES_PER_ROW = 'IMAGES_PER_ROW';
 
 const request = axios.create({
   baseURL: 'https://api.cognitive.microsoft.com/bing/v7.0/images/',
