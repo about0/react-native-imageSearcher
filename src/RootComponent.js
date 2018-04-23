@@ -41,6 +41,8 @@ class RootComponent extends Component {
           value={this.props.keyword}
           onChange={val => this.props.fetchImageRequest(val)}
           clearField={this.props.clearSearchField}
+          imagesPerRow={this.props.imagesPerRow}
+          onChangeItems={quantity => this.props.changeImagesPerRow(quantity)}
         />
         {content}
       </View>

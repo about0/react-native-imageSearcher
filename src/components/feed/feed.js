@@ -33,7 +33,7 @@ class Feed extends Component {
             />
           )}
           keyExtractor={(item, index) => index}
-          key={this.props.imagesPerRow === 2 ? 1 : 0}
+          key={this.props.imagesPerRow}
         />
       </View>
     );
