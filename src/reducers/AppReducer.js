@@ -4,12 +4,14 @@ import {
   FETCH_IMAGES_BEGIN,
   FETCH_IMAGES_FAILURE,
   FETCH_IMAGES_SUCCESS,
+  KEYWORD_CHANGE,
 } from '../actions/actions';
 
 const initialState = {
   images: [],
   loading: false,
   error: null,
+  keyword: '',
 };
 
 function search(state = initialState, action) {
@@ -19,6 +21,7 @@ function search(state = initialState, action) {
         ...state,
         loading: true,
         error: null,
+        keyword: action.payload.keyword,
       };
 
     case FETCH_IMAGES_SUCCESS:
@@ -34,6 +37,12 @@ function search(state = initialState, action) {
         error: action.payload.error,
         loading: false,
         images: [],
+      };
+
+    case KEYWORD_CHANGE:
+      return {
+        ...state,
+        keyword: action.payload.keyword,
       };
 
     default:
