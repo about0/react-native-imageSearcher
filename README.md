@@ -5,6 +5,7 @@ This is a test project that was bootstrapped with [Create React Native App](http
 The goal of the project was to make a image search app with the use fo React + Redux.
 
 List of goals and their completion:
+
 [x] Image search.
 [x] Shows result with grid options 2/3/4 cells per row.
 [] Application has to show full screen image.
