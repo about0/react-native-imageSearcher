@@ -6,10 +6,10 @@ The goal of the project was to make a image search app with the use fo React + R
 
 List of goals and their completion:
 
-* [X]:sunglasses: Image search.
-* [X]:sunglasses: Shows result with grid options 2/3/4 cells per row.
-* []:hankey: Application has to show full screen image.
-* []:hankey: On details screen should be button that opens link in external browser.
+* :sunglasses: Image search.
+* :sunglasses: Shows result with grid options 2/3/4 cells per row.
+* :trollface: Application has to show full screen image.
+* :trollface: On details screen should be button that opens link in external browser.
 
 ## Installation
 
