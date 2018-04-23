@@ -9,15 +9,11 @@ import {
 
 const styles = StyleSheet.create({
   container: {
-    flexDirection: 'row'
+    flexDirection: 'row',
     justifyContent: 'center',
-    paddingHorizontal: 10,
   },
-  searchField: {
-  },
-  clearButton: {
-    flex: 1,
-  },
+  searchField: { height: 40, width: '90%', top: 0 },
+  clearButton: {},
 });
 
 const search = props => (

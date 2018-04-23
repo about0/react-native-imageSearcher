@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { View, Text, StyleSheet } from 'react-native';
-
+import { Constants } from 'expo';
 import { connect } from 'react-redux';
 
 import Search from './components/search/search';
@@ -8,16 +8,20 @@ import Feed from './components/feed/feed';
 import { fetchImages, KEYWORD_CHANGE } from './actions/actions';
 
 const colors = {
-  white: '#fff',
+  white: '#ecf0f1',
 };
 
 const styles = StyleSheet.create({
-  container: { flex: 1, alignSelf: 'stretch', backgroundColor: colors.white },
+  container: {
+    flex: 1,
+    justifyContent: 'flex-start',
+    paddingTop: Constants.statusBarHeight,
+    backgroundColor: colors.white,
+  },
   header: {
     fontWeight: 'bold',
     fontSize: 30,
     alignSelf: 'center',
-    paddingTop: 30,
   },
 });
 
@@ -25,6 +29,11 @@ class RootComponent extends Component {
   componentDidMount() {}
 
   render() {
+    const content = this.props.isLoading ? (
+      <Text>Loading...</Text>
+    ) : (
+      <Feed images={this.props.images} />
+    );
     return (
       <View style={styles.container}>
         <Text style={styles.header}>Image Search</Text>
@@ -33,7 +42,7 @@ class RootComponent extends Component {
           onChange={val => this.props.fetchImageRequest(val)}
           clearField={this.props.clearSearchField}
         />
-        <Feed images={this.props.images} />
+        {content}
       </View>
     );
   }
@@ -42,6 +51,7 @@ class RootComponent extends Component {
 const mapStateToProps = state => ({
   images: state.search.images,
   keyword: state.search.keyword,
+  isLoading: state.search.loading,
 });
 
 const mapDispatchToProps = (dispatch) => {
