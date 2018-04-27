@@ -44,15 +44,15 @@ const search = props => (
     </TouchableOpacity>
     <Select
       onSelect={props.onChangeItems}
-      defaultText={props.imagesPerRow}
+      defaultText="2"
       style={styles.select}
       textStyle={{}}
       backdropStyle={styles.backdropStyle}
       optionListStyle={styles.optionListStyle}
     >
-      <Option value={2}>2</Option>
-      <Option value={3}>3</Option>
-      <Option value={4}>4</Option>
+      <Option value="2">2</Option>
+      <Option value="3">3</Option>
+      <Option value="4">4</Option>
     </Select>
   </View>
 );

@@ -2,8 +2,8 @@ import React from 'react';
 import { Image, TouchableOpacity } from 'react-native';
 
 const feedItem = props => (
-  <TouchableOpacity>
-    <Image style={props.style} source={props.source} />
+  <TouchableOpacity onPress={}>
+    <Image style={props.style} source={{ uri: props.image.thumbnailUrl }} />
   </TouchableOpacity>
 );
 

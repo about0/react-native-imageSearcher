@@ -28,6 +28,7 @@ class Feed extends Component {
           data={this.props.images}
           renderItem={({ item }) => (
             <FeedItem
+              image={item}
               source={{ uri: item.thumbnailUrl }}
               style={(styles.image, this.calculatedSize())}
             />
